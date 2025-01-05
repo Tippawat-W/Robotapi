@@ -1,10 +1,4 @@
 *** Keywords ***
-Create headers2
-    [Arguments]    &{objects}
-    &{default_headers}=    BuiltIn.Create Dictionary    Content-Type=application/json    Accept=application/json
-    ${headers}=    BuiltIn.Create Dictionary    &{default_headers}    &{objects}
-    [Return]    ${headers}
-
 Create headers
     [Arguments]    &{objects}
     ${headers}=    BuiltIn.Create Dictionary    &{objects}
