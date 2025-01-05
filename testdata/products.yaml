@@ -1,0 +1,31 @@
+products_detail:
+  espresso:
+      id: 1001
+      category: "coffee"
+      name: "Espresso"
+      isAvailable: true
+  latte:
+      id: 1003
+      category: "coffee"
+      name: "Latte"
+      isAvailable: true
+  cold_brew:
+      id: 1010
+      category: "coffee"
+      name: "Cold Brew"
+      isAvailable: true
+
+products_order:
+  espresso:
+      id: 1001
+      quantity: 3
+  latte:
+      id: 1003
+      quantity: 2
+  cold_brew:
+      id: 1010
+      quantity: 4
+
+status_order:
+    success:
+        code: "201"
