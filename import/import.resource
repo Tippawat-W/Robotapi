@@ -11,6 +11,7 @@ Library    DebugLibrary
 
 
 Resource    ${CURDIR}/import_variable.resource
-Resource    ${CURDIR}/import_keyword.resource
-Resource    ${CURDIR}/import_locator.resource
+Resource    ${CURDIR}/import_keywords.resource
+
+
 Variables    ${CURDIR}/../settings/setting.yaml

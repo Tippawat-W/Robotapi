@@ -1,10 +1,10 @@
 *** Keywords ***
-Order coffee success
+Order Coffee Success
     [Arguments]    ${url}        ${part}      ${req_body}      ${headers}      ${expected_response}         ${expected_status} 
-    ${response}=     api_common.Send post request with json body           
+    ${response}=     api_commons.Send Post Request With Json Body           
     ...    ${url}       
     ...    ${part}  
     ...    ${req_body}
     ...    ${headers}  
     ...    ${expected_status}
-    api_common.Verify response with dict      ${response.json()}    &{expected_response}
+    api_commons.Verify Response With Dict      ${response.json()}    &{expected_response}
