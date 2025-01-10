@@ -1,12 +1,12 @@
-GLOBAL_TIMEOUT                : 20s
+global_timeout                : 20s
 api_key                       : null
 default_headers:
-  Content-Type: application/json
-  Accept: application/json
+  content-Type: application/json
+  accept: application/json
 
-Token                         : "Test"
+token                         : "Test"
 
-API: 
+api: 
   url: 
     dev: https://valentinos-coffee.herokuapp.com
   status: /status
