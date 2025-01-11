@@ -3,3 +3,6 @@ order_coffee:
   customerName: "Test Test"
   success:
     code: "200"
+  failed:
+    code: "404"
+    message: "Order not found"
