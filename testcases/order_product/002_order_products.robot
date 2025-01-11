@@ -6,7 +6,9 @@ Verify that user can order product success
     ${headers}=      BuiltIn.Create Dictionary         x-api-key=${Token}                 
     ${products}=     api_commons.Built Json File       ${products_order}
     ${req_body}=     BuiltIn.Create Dictionary        customerName=${user_01['name']}     products=${products}
-    ${expected_response}=       BuiltIn.Set Variable    ${req_body}    #  API response data same as payload.
+
+    # API response data same as payload.
+    ${expected_response}=       BuiltIn.Set Variable    ${req_body}
     order_product_api.Order Coffee Success      
     ...    ${api['url']['dev']}       
     ...    ${api['order']}   

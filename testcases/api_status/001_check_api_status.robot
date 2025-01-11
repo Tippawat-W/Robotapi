@@ -4,7 +4,7 @@ Resource    ${CURDIR}/../../import/import.resource
 *** Test Cases ***
 Verify that api status is active
     ${headers}=    BuiltIn.Create Dictionary             &{default_headers}
-    check_api.Check Api Status            
+    heal_check_api.Check Api Status            
     ...    ${api['url']['dev']}        
     ...    ${api['status']}      
     ...    ${headers}
