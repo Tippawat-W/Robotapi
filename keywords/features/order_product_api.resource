@@ -8,7 +8,7 @@ Order Coffee Success
     ...    ${headers}  
     ...    ${expected_status}
     api_commons.Verify Response With Dict      ${response.json()}    &{expected_response}
-    Set Global Variable    ${order_id}    ${response.json()['id']} 
+    BuiltIn.Set Global Variable    ${order_id}    ${response.json()['id']} 
     get_order_api.Check Order By Id Success
     ...    ${url}       
     ...    ${api['single_order']}   

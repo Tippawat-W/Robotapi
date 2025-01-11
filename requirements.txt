@@ -2,7 +2,5 @@ robotframework==6.1
 robotframework-jsonlibrary==0.5
 robotframework-requests==0.9.7
 robotframework-seleniumlibrary==6.1.0
-robotframework-selenium2library==3.0.0
 robotframework-debuglibrary==2.5.0
-python-dotenv==1.0.1
 PyYAML==6.0

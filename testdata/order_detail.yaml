@@ -1,6 +1,5 @@
 order_coffee:
-  id: "7X9VBEF_W"
-  customerName: "Test Test"
+  customerName: "Tippawan Sriracha"
   success:
     code: "200"
   failed:
