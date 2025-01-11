@@ -4,7 +4,8 @@ Register Member Success
     ${response}=     api_commons.Send Post Request With Json Body       ${url}        ${part}     ${req_body}        ${headers}    ${expected_status}
     api_commons.Verify Key Exists In Response        ${response.json()}       ${response_key}
     ${Token}    Collections.Get From Dictionary    ${response.json()}       ${response_key}
-    Set Global Variable    ${Token}    ${Token} 
+    BuiltIn.Set Global Variable    ${Token}    ${Token} 
+    [Return]     ${response}
 
 Register Member Is Failed
     [Arguments]    ${url}        ${part}      ${req_body}      ${headers}      ${expected_response}         ${expected_status} 

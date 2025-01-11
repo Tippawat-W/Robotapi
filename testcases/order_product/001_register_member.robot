@@ -16,8 +16,8 @@ Verify that user cannot register member when email is invalid format
 
 Verify that system can Register Member Success
     ${headers}=      BuiltIn.Create Dictionary             &{default_headers}
-    ${add_today}=    commons.Add Days And Time To Current Date    ${member['email']['new']}
-    ${req_body}=     BuiltIn.Create Dictionary            email=${add_today}
+    ${final_email_format}=    commons.Add Days And Time To Current Date    ${member['email']['new']}
+    ${req_body}=     BuiltIn.Create Dictionary            email=${final_email_format}
     register_api.Register Member Success   
     ...    ${api['url']['dev']}       
     ...    ${api['register']}   
@@ -28,8 +28,8 @@ Verify that system can Register Member Success
 
 Verify that user cannot register member when email is exist on system
     ${headers}=      BuiltIn.Create Dictionary             &{default_headers}
-    ${add_today}=    commons.Add Days And Time To Current Date    ${member['email']['new']}
-    ${req_body}=     BuiltIn.Create Dictionary             email=${add_today}
+    ${final_email_format}=    commons.Add Days And Time To Current Date    ${member['email']['new']}
+    ${req_body}=     BuiltIn.Create Dictionary             email=${final_email_format}
     register_api.Register Member Success   
     ...    ${api['url']['dev']}       
     ...    ${api['register']}   
@@ -44,6 +44,3 @@ Verify that user cannot register member when email is exist on system
     ...    ${headers}  
     ...    ${member['status']['failed']['response_exist']}  
     ...    ${member['status']['failed']['code']}
-
-
-*** comments ***
