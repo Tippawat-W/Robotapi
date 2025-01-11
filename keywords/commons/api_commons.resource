@@ -20,8 +20,11 @@ Send Get Request With Header
 
 Verify Key Exists In Response
     [Arguments]    ${resp_json}    ${key_name}
-    Run Keyword If    '${key_name}' in ${resp_json}    Log    Key '${key_name}' exists
-    ...    ELSE    Fail    Key '${key_name}' does not exist
+    IF    '${key_name}' in ${resp_json}    
+        BuiltIn.Log    Key '${key_name}' exists
+    ELSE
+        BuiltIn.Fail    Key '${key_name}' does not exist
+    END
 
 Verify Response Text Value
     [Arguments]    ${resp_text}    ${expected_value}
@@ -39,10 +42,10 @@ Verify Response With Dict
     
 Built Json File
     [Arguments]    ${order}
-    ${list}=    Create List
-    @{keys}=    Get Dictionary Keys    ${order}
+    ${list}=    BuiltIn.Create List
+    @{keys}=    Collections.Get Dictionary Keys    ${order}
     FOR    ${value}    IN    @{keys}
-        ${data}=    Get From Dictionary    ${order}    ${value}
-        Append To List    ${list}    ${data}
+        ${data}=    Collections.Get From Dictionary    ${order}    ${value}
+        Collections.Append To List    ${list}    ${data}
     END
     [Return]    ${list}
