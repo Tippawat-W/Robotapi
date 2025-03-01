@@ -34,4 +34,4 @@ Add Days And Time To Current Date
     ${time}=         BuiltIn.Set Variable    ${hour}${min}${sec} 
     ${add_time}=     String.Replace String   ${add_date}     {time}    ${time}
     ${new_date}=     BuiltIn.Set Variable    ${add_time}
-    [Return]    ${new_date}
+    Set Test Variable    ${value_inclue_date_and_time}        ${new_date}

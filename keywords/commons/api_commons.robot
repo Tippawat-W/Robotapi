@@ -1,8 +1,13 @@
 *** Keywords ***
-Create headers
+Create Headers
     [Arguments]    &{objects}
     ${headers}=    BuiltIn.Create Dictionary    &{objects}
-    [Return]    ${headers}
+    Set Test Variable    ${headers}        ${headers}
+
+Create Body
+    [Arguments]    &{objects}
+    ${req_body}=    BuiltIn.Create Dictionary    &{objects}
+    Set Test Variable    ${req_body}        ${req_body}
 
 Send Post Request With Json Body
     [Arguments]    ${url}    ${path}    ${request_body}    ${header}    ${expected_status_code}
@@ -40,7 +45,7 @@ Verify Response With Dict
         BuiltIn.Should Be Equal    ${actual_value}    ${expected_value}
     END
     
-Built Json File
+Create Order Product List
     [Arguments]    ${order}
     ${list}=    BuiltIn.Create List
     @{keys}=    Collections.Get Dictionary Keys    ${order}
@@ -48,4 +53,4 @@ Built Json File
         ${data}=    Collections.Get From Dictionary    ${order}    ${value}
         Collections.Append To List    ${list}    ${data}
     END
-    [Return]    ${list}
+    Set Test Variable    ${products_order}        ${list}
