@@ -10,8 +10,8 @@ Library    JSONLibrary
 Library    DebugLibrary
 
 
-Resource    ${CURDIR}/import_variable.resource
-Resource    ${CURDIR}/import_keywords.resource
+Resource    ${CURDIR}/import_variable.robot
+Resource    ${CURDIR}/import_keywords.robot
 
 
 Variables    ${CURDIR}/../settings/setting.yaml
