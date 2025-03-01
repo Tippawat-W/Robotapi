@@ -24,7 +24,7 @@ Verify That Get Order Failed When Token Not Match Order Id
     ...    ${headers}  
     ...    ${member['status']['success']['code']}
     And Verify Register Success     ${response}            ${member['status']['success']['response_key']} 
-    Given Create Headers            x-api-key=${Token}
+    And Create Headers            x-api-key=${Token}
     When Check Order
     ...    ${api['url']['dev']}       
     ...    ${api['single_order']}   
