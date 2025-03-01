@@ -35,8 +35,8 @@ Verify that user cannot register member when email is exist on system
     ...    ${req_body}  
     ...    ${headers}  
     ...    ${member['status']['success']['code']}
-    Then Verify Register Success     ${response}            ${member['status']['success']['response_key']} 
-    When Register Member
+    And Verify Register Success     ${response}            ${member['status']['success']['response_key']} 
+    And Register Member
     ...    ${api['url']['dev']}       
     ...    ${api['register']}   
     ...    ${req_body}  
