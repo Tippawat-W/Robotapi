@@ -1,5 +1,7 @@
 *** Settings ***
-Resource    ${CURDIR}/../../import/import.robot
+Resource    ${CURDIR}/../../resource/import/import.robot
+Resource    ${CURDIR}/../../keywords/features/register_api.robot
+Resource    ${CURDIR}/../../keywords/features/get_order_api.robot
 
 *** Test Cases ***
 Verify That Get Order Success

@@ -17,7 +17,7 @@ Send Post Request With Json Body
     [Return]    ${response}
 
 Send Get Request With Header
-    [Arguments]    ${url}    ${path}   ${header}    ${expected_status_code}
+    [Arguments]    ${url}    ${path}   ${header}    ${expected_status_code}=200
     RequestsLibrary.Create Session    alias=get_session    url=${url}    verify=true
     ${response}=    RequestsLibrary.Get On Session    get_session    ${path}    headers=${header}    expected_status=anything
     RequestsLibrary.Status Should Be    ${expected_status_code}    ${response}    Got unexpected status from request : Expect status : ${expected_status_code} but got ${response.status_code} ${response.reason}
