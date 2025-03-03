@@ -16,3 +16,4 @@ api:
   register: /clients
   order: /orders
   single_order: /orders/{order_id}
+

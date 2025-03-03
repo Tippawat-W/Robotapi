@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ${CURDIR}/../../import/import.robot
+#Change folder import to resource
 
 *** Test Cases ***
 Verify that api status is active
@@ -8,7 +9,8 @@ Verify that api status is active
     ...    ${api['url']['dev']}        
     ...    ${api['status']}
     ...    ${headers}      
-    ...    ${status_api['active']['expected_status_code']}    
+    ...    ${status_api['active']['expected_status_code']}
+#If this keywords use only for Check api it not necessary to parse Arguments
        Then Verify Api Is Available        ${response}    ${status_api['active']['status']}
             
 
