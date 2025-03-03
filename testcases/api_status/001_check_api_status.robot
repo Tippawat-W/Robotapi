@@ -1,5 +1,6 @@
 *** Settings ***
-Resource    ${CURDIR}/../../import/import.robot
+Resource    ${CURDIR}/../../resource/import/import.robot
+Resource    ${CURDIR}/../../keywords/features/heal_check_api.robot
 
 *** Test Cases ***
 Verify that api status is active
@@ -7,8 +8,7 @@ Verify that api status is active
        When Check Api Status
     ...    ${api['url']['dev']}        
     ...    ${api['status']}
-    ...    ${headers}      
-    ...    ${status_api['active']['expected_status_code']}    
+    ...    ${headers}       
        Then Verify Api Is Available        ${response}    ${status_api['active']['status']}
             
 

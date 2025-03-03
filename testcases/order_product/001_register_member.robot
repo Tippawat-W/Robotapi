@@ -1,5 +1,6 @@
 *** Settings ***
-Resource    ${CURDIR}/../../import/import.robot
+Resource    ${CURDIR}/../../resource/import/import.robot
+Resource    ${CURDIR}/../../keywords/features/register_api.robot
 
 *** Test Cases ***
 Verify that user cannot register member when email is invalid format

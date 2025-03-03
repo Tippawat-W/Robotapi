@@ -1,5 +1,7 @@
 *** Settings ***
-Resource    ${CURDIR}/../../import/import.robot
+Resource    ${CURDIR}/../../resource/import/import.robot
+Resource    ${CURDIR}/../../keywords/features/order_product_api.robot
+Resource    ${CURDIR}/../../keywords/features/get_order_api.robot
 
 *** Test Cases ***
 Verify that user can order product success
