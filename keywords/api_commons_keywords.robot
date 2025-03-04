@@ -24,6 +24,7 @@ Send Get Request With Header
     [Return]    ${response}
 
 Verify Key Exists In Response
+    [Documentation]  Check dict key by expected data key
     [Arguments]    ${resp_json}    ${key_name}
     IF    '${key_name}' in ${resp_json}    
         BuiltIn.Log    Key '${key_name}' exists
@@ -36,6 +37,7 @@ Verify Response Text Value
     BuiltIn.Should Be Equal    ${resp_text}    ${expected_value}
 
 Verify Response With Dict
+    [Documentation]  Check dict key:value by expected data key:value
     [Arguments]    ${resp_json_data}    &{expected_data}
     FOR    ${key}    IN    @{expected_data.keys()}
         ${expected_value}    Collections.Get From Dictionary    ${expected_data}    ${key}
@@ -46,6 +48,7 @@ Verify Response With Dict
     END
     
 Create Order Product List
+    [Documentation]  Change order list to JSON format.
     [Arguments]    ${order}
     ${list}=    BuiltIn.Create List
     @{keys}=    Collections.Get Dictionary Keys    ${order}

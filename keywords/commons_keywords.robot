@@ -13,7 +13,7 @@ Get Today And Time
 
 Add Days To Current Date
     [Arguments]    ${value}
-    ${today}=        commons.Get Today Date
+    ${today}=        commons_keywords.Get Today Date
     ${year}          BuiltIn.Set Variable    ${today}[0]
     ${month}         BuiltIn.Set Variable    ${today}[1]
     ${day}           BuiltIn.Set Variable    ${today}[2]
@@ -22,7 +22,7 @@ Add Days To Current Date
 
 Add Days And Time To Current Date
     [Arguments]    ${value}
-    ${today}=        commons.Get Today And Time
+    ${today}=        commons_keywords.Get Today And Time
     ${year}          BuiltIn.Set Variable    ${today}[0]
     ${month}         BuiltIn.Set Variable    ${today}[1]
     ${day}           BuiltIn.Set Variable    ${today}[2]

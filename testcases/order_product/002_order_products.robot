@@ -1,10 +1,11 @@
 *** Settings ***
 Resource    ${CURDIR}/../../resource/import/import.robot
-Resource    ${CURDIR}/../../keywords/features/order_product_api.robot
-Resource    ${CURDIR}/../../keywords/features/get_order_api.robot
+Resource    ${CURDIR}/../../keywords/order_product_api_keywords.robot
+Resource    ${CURDIR}/../../keywords/get_order_api_keywords.robot
 
 *** Test Cases ***
 Verify that user can order product success
+    [Tags]    high
     Given Create Headers         x-api-key=${Token}                 
     And Create Order Product List       ${products_order}
     And Create Body       customerName=${user_01['name']}     products=${products_order}
@@ -19,20 +20,3 @@ Verify that user can order product success
     ...    ${response}
     ...    ${api['url']['dev']}       
     ...    ${headers}
-
-*** Comments ***
-
-Verify that user can order product success
-    ${headers}=      BuiltIn.Create Dictionary         x-api-key=${Token}                 
-    ${products}=     api_commons.Built Json File       ${products_order}
-    ${req_body}=     BuiltIn.Create Dictionary        customerName=${user_01['name']}     products=${products}
-
-    # API response data same as payload.
-    ${expected_response}=       BuiltIn.Set Variable    ${req_body}
-    order_product_api.Order Coffee Success      
-    ...    ${api['url']['dev']}       
-    ...    ${api['order']}   
-    ...    ${req_body}
-    ...    ${headers}
-    ...    ${expected_response}
-    ...    ${status_order['success']['code']}
