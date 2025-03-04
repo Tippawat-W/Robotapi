@@ -10,13 +10,16 @@ Library    JSONLibrary
 Library    DebugLibrary
 
 
-Resource    ${CURDIR}/../../keywords/commons/api_commons.robot
-Resource    ${CURDIR}/../../keywords/commons/commons.robot
+Resource    ${CURDIR}/../../keywords/api_commons_keywords.robot
+Resource    ${CURDIR}/../../keywords/commons_keywords.robot
 
 
-Variables    ${CURDIR}/../../settings/setting.yaml
-Variables    ${CURDIR}/../../testdata/api_detail.yaml
-Variables    ${CURDIR}/../../testdata/order_detail.yaml
-Variables    ${CURDIR}/../../testdata/register.yaml
-Variables    ${CURDIR}/../../testdata/users.yaml
-Variables    ${CURDIR}/../../testdata/products.yaml
+Variables    ${CURDIR}/../../testdata/${env}/setting.yaml
+Variables    ${CURDIR}/../../testdata/${env}/api_detail.yaml
+Variables    ${CURDIR}/../../testdata/${env}/order_detail.yaml
+Variables    ${CURDIR}/../../testdata/${env}/register.yaml
+Variables    ${CURDIR}/../../testdata/${env}/users.yaml
+Variables    ${CURDIR}/../../testdata/${env}/products.yaml
+
+*** Variables ***
+${env}      dev
