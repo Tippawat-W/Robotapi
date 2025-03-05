@@ -1,7 +1,7 @@
 *** Keywords ***
 Create Headers
     [Arguments]    &{objects}
-    ${headers}=    BuiltIn.Create Dictionary    &{objects}
+    ${headers}    BuiltIn.Create Dictionary    &{objects}
     Set Test Variable    ${headers}        ${headers}
 
 Create Body

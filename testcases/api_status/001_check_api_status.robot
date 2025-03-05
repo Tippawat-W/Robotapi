@@ -5,10 +5,6 @@ Resource    ${CURDIR}/../../keywords/heal_check_api_keywords.robot
 *** Test Cases ***
 Verify that api status is active
        [Tags]    high 
-       Given Create Headers        &{default_headers}
-       When Check Api Status
-    ...    ${api['url']['dev']}        
-    ...    ${api['status']}
-    ...    ${headers}       
+       Given api check status has valid header
+       When Send request to check status
        Then Verify Api Is Available        ${response}    ${status_api['active']['status']}
-            
