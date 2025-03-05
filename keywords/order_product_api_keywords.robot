@@ -11,7 +11,7 @@ Order Coffee
 
 Verify Order Coffee Is Success
     [Arguments]    ${response}    ${expected_response}
-    api_commons_keywords.Verify Response With Dict    ${response.json()}    &{expected_response}
+    api_commons_keywords.Verify Response With Dictionary Key    ${response.json()}    &{expected_response}
 
  
 Verify Order Coffee Is Correct
