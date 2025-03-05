@@ -1,7 +1,0 @@
-order_coffee:
-  customerName: "Tippawan Sriracha"
-  success:
-    code: "200"
-  failed:
-    code: "404"
-    message: "Order not found"

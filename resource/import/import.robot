@@ -9,17 +9,13 @@ Library    DateTime
 Library    JSONLibrary
 Library    DebugLibrary
 
-
 Resource    ${CURDIR}/../../keywords/api_commons_keywords.robot
 Resource    ${CURDIR}/../../keywords/commons_keywords.robot
 
-
-Variables    ${CURDIR}/../../testdata/${env}/setting.yaml
-Variables    ${CURDIR}/../../testdata/${env}/api_detail.yaml
-Variables    ${CURDIR}/../../testdata/${env}/order_detail.yaml
-Variables    ${CURDIR}/../../testdata/${env}/register.yaml
-Variables    ${CURDIR}/../../testdata/${env}/users.yaml
-Variables    ${CURDIR}/../../testdata/${env}/products.yaml
+Variables    ${CURDIR}/../../testdata/${env}/test_data.yaml
+Variables    ${CURDIR}/../../testdata/common/test_data.yaml
+Variables    ${CURDIR}/configs/common_configs.yaml
+Variables    ${CURDIR}/configs/${env}/env_config.yaml
 
 *** Variables ***
-${env}      dev
+${env}    dev

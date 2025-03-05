@@ -1,0 +1,11 @@
+#Api_path_for_coffee_shop
+api_path:
+  status: /status
+  product: /products
+  single_product: /products/{product_id}
+  register: /clients
+  order: /orders
+  single_order: /orders/{order_id}
+
+#Timout_setting
+global_timeout:    20s

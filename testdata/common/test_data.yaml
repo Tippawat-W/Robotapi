@@ -1,0 +1,19 @@
+#Heal_check_api_response
+status_api:
+  active: 
+    status: "API is up and running"
+    expected_status_code: "200"
+
+#Api key setup
+api_key: null
+
+#Headers set up
+default_headers:
+  content-Type: application/json
+  accept: application/json
+
+#Token setup
+token: "Test"
+
+#Payload for order_id setup
+order_id: {}
