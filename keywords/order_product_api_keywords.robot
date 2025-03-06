@@ -2,12 +2,12 @@
 Api Order Coffee Has Valid Token
     Create Headers    x-api-key=${Token}
 
-Payload Order coffee Has Product
+Payload Order Coffee Has Product
     [Arguments]    ${products_order}
     Create Order Product List    ${products_order}
     Create Body   customerName=${customer.name}    products=${products_order}
 
-Rest Api for Order Coffee
+Rest Api For Order Coffee
     [Arguments]    ${url}    ${expected_status}
     ${response}    api_commons_keywords.Send Post Request With Json Body
     ...    ${url}

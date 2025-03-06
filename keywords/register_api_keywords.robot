@@ -6,7 +6,7 @@ Payload Register Member Has Email
     [Arguments]    &{req_body}
     Create Body    &{req_body}
 
-Rest Api for Register Member
+Rest Api For Register Member
     [Arguments]    ${url}    ${expected_status}
     ${response}    api_commons_keywords.Send Post Request With Json Body    ${url}    ${api_path.register}    ${req_body}    ${headers}    ${expected_status}
     Set Test Variable    ${response}    ${response}
