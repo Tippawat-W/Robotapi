@@ -5,7 +5,7 @@ Resource    ${CURDIR}/../../keywords/get_order_api_keywords.robot
 
 *** Test Cases ***
 Verify that user can order product success
-    [Tags]    high
+    [Tags]    High
     Given Api Order Coffee Has Valid Token
     And Payload Order Coffee Has Product    ${products_order}
     When Rest Api For Order Coffee
