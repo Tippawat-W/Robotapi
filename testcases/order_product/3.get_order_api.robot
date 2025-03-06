@@ -17,7 +17,7 @@ Verify That Get Order Failed When Token Not Match Order Id
     Given Api Register Member Has Valid Header
     And Add Current Date Time On Data    ${member.email.new}
     And Payload Register Member Has Email    email=${value_inclue_date_and_time}
-    And Rest Api for Register Member
+    And Rest Api For Register Member
     ...    ${api_coffee_shop.url.dev}
     ...    ${member.status.success.code}
     And Verify Register Success
