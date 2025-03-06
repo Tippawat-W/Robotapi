@@ -1,0 +1,43 @@
+#Get_user_order_list_api
+order_list:
+  customerName: "Tippawan Sriracha"
+  success:
+    code: "200"
+  failed:
+    code: "404"
+    message: "Order not found"
+
+#Payload_for_order_coffee_api
+products_order:
+  espresso:
+    id: 1001
+    quantity: 3
+  latte:
+    id: 1003
+    quantity: 2
+  cold_brew:
+    id: 1010
+    quantity: 4
+
+customer:
+  name: "Tippawan Sriracha"
+
+#order_coffee_api_response
+order_coffee:
+    success:
+      code: "201"
+
+#Payload_for_register_member
+member:
+  email:
+    new: "Test{date}{time}@gmail.com"
+    exist: "Test123@gmail.com"
+    invalid: "Test123gmail.com"
+  status:
+    success: 
+      code: "200"
+      response_key: "token"
+    failed:
+      code: "400"
+      response_invalid: "Invalid email format"
+      response_exist: "Email already registered"
