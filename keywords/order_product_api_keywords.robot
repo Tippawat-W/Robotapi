@@ -8,22 +8,18 @@ Payload Order Coffee Has Product
     Create Body   customerName=${customer.name}    products=${products_order}
 
 Rest Api For Order Coffee
-    [Arguments]    ${url}    ${expected_status}
     ${response}    api_commons_keywords.Send Post Request With Json Body
-    ...    ${url}
+    ...    ${api_coffee_shop['url']['dev']}
     ...    ${api_path.order}
     ...    ${req_body}
     ...    ${headers}
-    ...    ${expected_status}
     Set Test Variable    ${response}    ${response}
 
 Verify Order Coffee Is Success
+    RequestsLibrary.Status Should Be    ${order_coffee.success.code}    ${response}
     api_commons_keywords.Verify Response With Dictionary Key    ${response.json()}    &{req_body}    # API response data same as payload.
 
 Verify Order Coffee Is Correct
-    [Arguments]    ${url}
     BuiltIn.Set Global Variable    ${order_id}    ${response.json()['id']}
     Rest Api For Get Order
-    ...    ${url}
-    ...    ${order_list.success.code}
     Verify Check Order Is A Success
