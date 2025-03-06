@@ -1,13 +1,19 @@
 *** Keywords ***
-Register Member
-    [Arguments]    ${url}    ${path}    ${req_body}    ${headers}    ${expected_status}
-    ${response}    api_commons_keywords.Send Post Request With Json Body    ${url}    ${path}    ${req_body}    ${headers}    ${expected_status}
+Api Register Member Has Valid Header
+    Create Headers    &{default_headers}
+
+Payload Register Member Has Email
+    [Arguments]    &{req_body}
+    Create Body    &{req_body}
+
+Rest Api for Register Member
+    [Arguments]    ${url}    ${expected_status}
+    ${response}    api_commons_keywords.Send Post Request With Json Body    ${url}    ${api_path.register}    ${req_body}    ${headers}    ${expected_status}
     Set Test Variable    ${response}    ${response}
 
 Verify Register Success
-    [Arguments]    ${response}    ${response_key}
-    api_commons_keywords.Verify Key Exists In Response    ${response.json()}    ${response_key}
-    ${Token}    Collections.Get From Dictionary    ${response.json()}    ${response_key}
+    api_commons_keywords.Verify Key Exists In Response    ${response.json()}    ${member.status.success.response_key}
+    ${Token}    Collections.Get From Dictionary    ${response.json()}    ${member.status.success.response_key}
     BuiltIn.Set Global Variable    ${Token}    ${Token}
     Set Test Variable    ${response}    ${response}
 

@@ -9,8 +9,7 @@ api_key: null
 
 #Headers set up
 default_headers:
-  content-Type: application/json
-  accept: application/json
+  content-type: application/json
 
 #Token setup
 token: "Test"
