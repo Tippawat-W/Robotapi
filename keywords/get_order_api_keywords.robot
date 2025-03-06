@@ -4,7 +4,7 @@ Api Get Order Has Valid Token
 
 Rest Api For Get Order
     ${order_id_part}    String.Replace String    ${api_path.single_order}    {order_id}    ${order_id}
-    ${response}    api_commons_keywords.Send Get Request With Header    ${api_coffee_shop['url']['dev']}    ${order_id_part}    ${headers}
+    ${response}    api_commons_keywords.Send Get Request With Header    ${api_coffee_shop['url']}    ${order_id_part}    ${headers}
     Set Test Variable    ${response}    ${response}
 
 Verify Check Order Is A Success

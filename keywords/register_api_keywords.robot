@@ -7,7 +7,7 @@ Payload Register Member Has Email
     Create Body    &{req_body}
 
 Rest Api For Register Member
-    ${response}    api_commons_keywords.Send Post Request With Json Body   ${api_coffee_shop['url']['dev']}    ${api_path.register}    ${req_body}    ${headers}
+    ${response}    api_commons_keywords.Send Post Request With Json Body   ${api_coffee_shop['url']}    ${api_path.register}    ${req_body}    ${headers}
     Set Test Variable    ${response}    ${response}
 
 Verify Register Success

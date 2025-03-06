@@ -1,3 +1,2 @@
 api_coffee_shop: 
-  url: 
-    dev: https://valentinos-coffee.herokuapp.com
+  url: https://valentinos-coffee.herokuapp.com

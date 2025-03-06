@@ -9,7 +9,7 @@ Payload Order Coffee Has Product
 
 Rest Api For Order Coffee
     ${response}    api_commons_keywords.Send Post Request With Json Body
-    ...    ${api_coffee_shop['url']['dev']}
+    ...    ${api_coffee_shop['url']}
     ...    ${api_path.order}
     ...    ${req_body}
     ...    ${headers}
