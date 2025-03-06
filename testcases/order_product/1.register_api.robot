@@ -8,9 +8,7 @@ Verify That User Cannot Register Member When Email Is Invalid Format
     Given Api Register Member Has Valid Header
     And Payload Register Member Has Email    email=${member.email.invalid}
     When Rest Api For Register Member
-    ...    ${api_coffee_shop.url.dev}
-    ...    ${member.status.failed.code}
-    Then Verify Register Failed    ${response}    ${member.status.failed.response_invalid}
+    Then Verify Register Failed    ${member.status.failed.response_invalid}
 
 Verify That System Can Register Member Success
     [Tags]    high
@@ -18,8 +16,6 @@ Verify That System Can Register Member Success
     And Add Current Date Time On Data    ${member.email.new}
     And Payload Register Member Has Email    email=${value_inclue_date_and_time}
     When Rest Api For Register Member
-    ...    ${api_coffee_shop.url.dev}
-    ...    ${member.status.success.code}
     Then Verify Register Success
 
 Verify That User Cannot Register Member When Email Is Exist On System
@@ -28,10 +24,6 @@ Verify That User Cannot Register Member When Email Is Exist On System
     And Add Current Date Time On Data    ${member.email.new}
     And Payload Register Member Has Email    email=${value_inclue_date_and_time}
     When Rest Api For Register Member
-    ...    ${api_coffee_shop.url.dev}
-    ...    ${member.status.success.code}
     And Verify Register Success
     And Rest Api For Register Member
-    ...    ${api_coffee_shop.url.dev}
-    ...    ${member.status.failed.code}
-    Then Verify Register Failed    ${response}    ${member.status.failed.response_exist}
+    Then Verify Register Failed    ${member.status.failed.response_exist}

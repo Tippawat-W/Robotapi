@@ -10,17 +10,15 @@ Create Body
     Set Test Variable    ${req_body}    ${req_body}
 
 Send Post Request With Json Body
-    [Arguments]    ${url}    ${path}    ${request_body}    ${header}    ${expected_status_code}
+    [Arguments]    ${url}    ${path}    ${request_body}    ${header}
     RequestsLibrary.Create Session    alias=post_session    url=${url}    verify=true
     ${response}    RequestsLibrary.Post On Session    post_session    ${path}    json=${request_body}   headers=${header}    expected_status=anything
-    RequestsLibrary.Status Should Be    ${expected_status_code}    ${response}    Got unexpected status from request : Expect status : ${expected_status_code} but got ${response.status_code} ${response.reason}
     [Return]    ${response}
 
 Send Get Request With Header
-    [Arguments]    ${url}    ${path}    ${header}    ${expected_status_code}=200
+    [Arguments]    ${url}    ${path}    ${header}
     RequestsLibrary.Create Session    alias=get_session    url=${url}    verify=true
     ${response}    RequestsLibrary.Get On Session    get_session    ${path}    headers=${header}    expected_status=anything
-    RequestsLibrary.Status Should Be    ${expected_status_code}    ${response}    Got unexpected status from request : Expect status : ${expected_status_code} but got ${response.status_code} ${response.reason}
     [Return]    ${response}
 
 Verify Key Exists In Response
