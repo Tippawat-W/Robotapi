@@ -1,31 +1,33 @@
+*** Settings ***
+Resource    order_product_api_keywords.robot
 *** Keywords ***
 Create Headers
     [Arguments]    &{objects}
-    ${headers}    BuiltIn.Create Dictionary    &{objects}
+    ${headers}    Create Dictionary    &{objects}
     Set Test Variable    ${headers}    ${headers}
 
 Send Post Request With Json Body
     [Arguments]    ${url}    ${path}    ${request_body}    ${header}
-    RequestsLibrary.Create Session    alias=post_session    url=${url}    verify=true
-    ${response}    RequestsLibrary.Post On Session    post_session    ${path}    json=${request_body}   headers=${header}    expected_status=anything
+    Create Session    alias=post_session    url=${url}    verify=true
+    ${response}    Post On Session    post_session    ${path}    json=${request_body}   headers=${header}    expected_status=anything
     [Return]    ${response}
 
 Send Get Request With Header
     [Arguments]    ${url}    ${path}    ${header}
-    RequestsLibrary.Create Session    alias=get_session    url=${url}    verify=true
-    ${response}    RequestsLibrary.Get On Session    get_session    ${path}    headers=${header}    expected_status=anything
+    Create Session    alias=get_session    url=${url}    verify=true
+    ${response}    Get On Session    get_session    ${path}    headers=${header}    expected_status=anything
     [Return]    ${response}
 
 Prepare Access Token
     Api Register Member Has Valid Header
     Setup Email For Register Member    ${register_member.valid_email}
-    Send Request ToRegister Member    ${prepare_email_for_register_is_already}
-    Verify Register Member Is A SuccessIs A Success
+    Send Request To Register Member    ${prepare_email_for_register_is_already}
+    Verify Register Member Is A Success
 
 Prepare Access Token And Product List
     Prepare Access Token
     Api Order Coffee Has Valid Token
-    Send Request ToOrder Coffeeffee    ${order_product_request}
+    Send Request To Order Coffee    ${order_product_request}
     Verify Order Coffee Is Success
 
 Setup Email For Register Member
