@@ -1,5 +1,3 @@
-*** Settings ***
-Resource    order_product_api_keywords.robot
 *** Keywords ***
 Create Headers
     [Arguments]    &{objects}
