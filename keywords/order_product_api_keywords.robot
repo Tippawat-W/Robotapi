@@ -4,7 +4,7 @@ Api Order Coffee Has Valid Token
 
 Send Request To Order Coffee
     [Arguments]    ${req_body}
-    ${response}    api_commons_keywords.Send Post Request With Json Body
+    ${response}    Send Post Request With Json Body
     ...    ${api_coffee_shop['url']}
     ...    ${api_path.order}
     ...    ${req_body}
@@ -13,7 +13,7 @@ Send Request To Order Coffee
     Set Test Variable    ${response}    ${response}
 
 Verify Order Coffee Is Success
-    RequestsLibrary.Status Should Be    ${order_product.success.code}    ${response}
+    Status Should Be    ${order_product.success.code}    ${response}
     Should Be Equal    ${response.json()['customerName']}    ${req_body.customerName}
     Should Be Equal    ${response.json()['products']}    ${req_body.products}
     Set Test Variable    ${order_id}    ${response.json()['id']}
