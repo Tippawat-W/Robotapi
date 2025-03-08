@@ -23,21 +23,37 @@ customer:
   name: "Tippawan Sriracha"
 
 #order_coffee_api_response
-order_coffee:
+order_product_request:
+  customerName: "Tippawan Sriracha"
+  products:
+    - id: 1001
+      quantity: 3
+    - id: 1003
+      quantity: 2
+    - id: 1010
+      quantity: 4
+
+order_product:
     success:
       code: "201"
 
 #Payload_for_register_member
-member:
-  email:
-    new: "Test{date}{time}@gmail.com"
+register_member:
+  invalid_email:
+    email: "Test123gmail.com"
+  valid_email:
+    email: "Test{date}{time}@gmail.com"
+  differance_email:
+    email: "Test{date}{time}@gmail.com"
+  exist_email:
     exist: "Test123@gmail.com"
-    invalid: "Test123gmail.com"
   status:
     success: 
       code: "200"
       response_key: "token"
     failed:
       code: "400"
-      response_invalid: "Invalid email format"
-      response_exist: "Email already registered"
+      response_invalid:
+        error: "Invalid email format"
+      response_exist:
+        error: "Email already registered"

@@ -7,5 +7,5 @@ Send Request To Check Status
     Set Test Variable    ${response}    ${response}
 
 Verify Api Is Available
-    ${expected_response}    BuiltIn.Create Dictionary    status=${status_api.active.status}
-    api_commons_keywords.Verify Response With Dictionary Key    ${response.json()}    &{expected_response}
+    RequestsLibrary.Status Should Be    ${status_api.active.expected_status_code}    ${response}
+    Should Be Equal    ${response.json()['status']}    ${status_api.active.status}

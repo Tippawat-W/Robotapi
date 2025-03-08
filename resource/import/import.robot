@@ -10,7 +10,6 @@ Library    JSONLibrary
 Library    DebugLibrary
 
 Resource    ${CURDIR}/../../keywords/api_commons_keywords.robot
-Resource    ${CURDIR}/../../keywords/commons_keywords.robot
 
 Variables    ${CURDIR}/../../testdata/${env}/test_data.yaml
 Variables    ${CURDIR}/../../testdata/common/test_data.yaml

@@ -4,11 +4,6 @@ Create Headers
     ${headers}    BuiltIn.Create Dictionary    &{objects}
     Set Test Variable    ${headers}    ${headers}
 
-Create Body
-    [Arguments]    &{objects}
-    ${req_body}    BuiltIn.Create Dictionary    &{objects}
-    Set Test Variable    ${req_body}    ${req_body}
-
 Send Post Request With Json Body
     [Arguments]    ${url}    ${path}    ${request_body}    ${header}
     RequestsLibrary.Create Session    alias=post_session    url=${url}    verify=true
@@ -21,37 +16,25 @@ Send Get Request With Header
     ${response}    RequestsLibrary.Get On Session    get_session    ${path}    headers=${header}    expected_status=anything
     [Return]    ${response}
 
-Verify Key Exists In Response
-    [Documentation]  Check dict key by expected data key
-    [Arguments]    ${resp_json}    ${key_name}
-    IF    '${key_name}' in ${resp_json}
-        BuiltIn.Log    Key '${key_name}' exists
-    ELSE
-        BuiltIn.Fail    Key '${key_name}' does not exist
-    END
+Prepare Access Token
+    Api Register Member Has Valid Header
+    Setup Email For Register Member    ${register_member.valid_email}
+    Send Request ToRegister Member    ${prepare_email_for_register_is_already}
+    Verify Register Member Is A SuccessIs A Success
 
-Verify Response Text Value
-    [Arguments]    ${resp_text}    ${expected_value}
-    BuiltIn.Should Be Equal    ${resp_text}    ${expected_value}
+Prepare Access Token And Product List
+    Prepare Access Token
+    Api Order Coffee Has Valid Token
+    Send Request ToOrder Coffeeffee    ${order_product_request}
+    Verify Order Coffee Is Success
 
-Verify Response With Dictionary Key
-    [Documentation]    Check dict key:value by expected data key:value
-    [Arguments]    ${resp_json_data}    &{expected_data}
-    FOR    ${key}    IN    @{expected_data.keys()}
-        ${expected_value}    Collections.Get From Dictionary    ${expected_data}    ${key}
-        ${actual_value}    Collections.Get From Dictionary    ${resp_json_data}    ${key}
-        BuiltIn.Log    Key: ${key} should be ${expected_value}
-        BuiltIn.Log    Key: ${key} should be ${actual_value}
-        BuiltIn.Should Be Equal    ${actual_value}    ${expected_value}
-    END
-
-Create Order Product List
-    [Documentation]  Change order list to JSON format.
-    [Arguments]    ${order}
-    ${list}=    BuiltIn.Create List
-    @{keys}=    Collections.Get Dictionary Keys    ${order}
-    FOR    ${value}    IN    @{keys}
-        ${data}=    Collections.Get From Dictionary    ${order}    ${value}
-        Collections.Append To List    ${list}    ${data}
-    END
-    Set Test Variable    ${products_order}    ${list}
+Setup Email For Register Member
+    [Arguments]    ${valid_email}
+    ${current_date}=    Get Current Date    result_format=%Y%m%d
+    ${current_time}=    Get Current Date    result_format=%H%M%S
+    ${updated_email_dic}    Evaluate    ${valid_email}.copy()
+    ${updated_email}    Set Variable    ${updated_email_dic['email']}
+    ${updated_email}    Replace String    ${updated_email}    {date}   ${current_date}
+    ${updated_email}    Replace String    ${updated_email}    {time}   ${current_time}
+    Set To Dictionary    ${updated_email_dic}    email=${updated_email}
+    Set Test Variable    ${prepare_email_for_register_is_already}    ${updated_email_dic}

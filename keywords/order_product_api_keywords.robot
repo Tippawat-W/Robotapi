@@ -2,24 +2,22 @@
 Api Order Coffee Has Valid Token
     Create Headers    x-api-key=${Token}
 
-Payload Order Coffee Has Product
-    [Arguments]    ${products_order}
-    Create Order Product List    ${products_order}
-    Create Body   customerName=${customer.name}    products=${products_order}
-
-Rest Api For Order Coffee
+Send Request To Order Coffee
+    [Arguments]    ${req_body}
     ${response}    api_commons_keywords.Send Post Request With Json Body
     ...    ${api_coffee_shop['url']}
     ...    ${api_path.order}
     ...    ${req_body}
     ...    ${headers}
+    Set Test Variable    ${req_body}    ${req_body}
     Set Test Variable    ${response}    ${response}
 
 Verify Order Coffee Is Success
-    RequestsLibrary.Status Should Be    ${order_coffee.success.code}    ${response}
-    api_commons_keywords.Verify Response With Dictionary Key    ${response.json()}    &{req_body}    # API response data same as payload.
+    RequestsLibrary.Status Should Be    ${order_product.success.code}    ${response}
+    Should Be Equal    ${response.json()['customerName']}    ${req_body.customerName}
+    Should Be Equal    ${response.json()['products']}    ${req_body.products}
+    Set Test Variable    ${order_id}    ${response.json()['id']}
 
 Verify Order Coffee Is Correct
-    BuiltIn.Set Global Variable    ${order_id}    ${response.json()['id']}
-    Rest Api For Get Order
-    Verify Check Order Is A Success
+    Send Request To Get Product Order
+    Verify Product Order Is A Success
