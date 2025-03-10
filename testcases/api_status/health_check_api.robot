@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${CURDIR}/../../resource/import/import.robot
-Resource    ${CURDIR}/../../keywords/heal_check_api_keywords.robot
+Resource    ${CURDIR}/../../keywords/health_check_api_keywords.robot
 
 *** Test Cases ***
 Verify That Api Status Is Active
